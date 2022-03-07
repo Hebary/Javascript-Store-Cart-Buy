@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Carrito Dinámico</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header__container">
+            <div class="logo">
+                <h3 class="logo__title">P Plataforma</h3>
+            </div>
+            <ul class="carrito__ul">
+                <li class="carrito__submenu--li">
+                    <img src="./img/cart.png" class="carrito__img">
+                    <div class="carrito" id="carrito">
+                        <table id="lista-carrito" class="carrito__table">
+                            <thead>
+                                <tr class="tr">
+                                    <th>Imagen</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <a href="#" id="vaciar-carrito" class="carrito__btn--vaciar">Vaciar Carrito</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- BANNER -->
+
+    <div class="hero">
+        <h2>Aprende algo nuevo</h2>
+        <h3>Todos los cursos a $11</h3>
+        <form action="#">
+            <input type="search" class="buscarInput " name="buscarInput" id="buscarInput" value=""
+                placeholder="¿Qué quieres aprender?">
+            <input type="submit" id="submit-buscador" value="" class="submit-buscador">
+        </form>
+    </div>
+
+
+    <div class="barra">
+        <div class="icono icono1">
+            <p>+20,000 Cursos en línea <br>
+                Descubre los temas más recientes</p>
+        </div>
+        <div class="icono icono2">
+            <p>Instructores Expertos <br>
+                Aprende con distintos estilos</p>
+        </div>
+        <div class="icono icono3">
+            <p>Acceso de por vida <br>
+                Hazlo a tu ritmo</p>
+        </div>
+    </div>
+
+    <!-- CARDS -->
+    
+    <h1>Cursos Online</h1>
+    <div id="listaCursos" class="cards__container">
+        <div class="card">
+            <img src="./img/curso1.jpg" alt="img-Curso-#1-No-disponible">
+            <div class="card__info">
+                <h4 class="card__title">HTML5, CSS3 y JavaScript</h4>
+                <img src="./img/estrellas.png" alt="valoración" id="estrellas">
+                <p><span class="precio">$200</span><strong class="card__precio">$11</strong></p>
+                <a href="#" class="card__btn--agregar" data-id="1">Agregar Al Carrito</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./img/curso2.jpg" alt="img-Curso-#2-No-disponible">
+            <div class="card__info">
+                <h4 class="card__title">Curso de programación</h4>
+                <img src="./img/estrellas.png" alt="valoración" id="estrellas">
+                <p><span class="precio">$90</span><strong class="card__precio">$11</strong></p>
+                <a href="#" class="card__btn--agregar" data-id="2">Agregar Al Carrito</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./img/curso3.jpg" alt="img-Curso-#3-No-disponible">
+            <div class="card__info">
+                <h4 class="card__title">Curso de guitarra</h4>
+                <img src="./img/estrellas.png" alt="valoración" id="estrellas">
+                <p><span class="precio">$150</span><strong class="card__precio">$11</strong></p>
+                <a href="#" class="card__btn--agregar" data-id="3">Agregar Al Carrito</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./img/curso4.jpg" alt="img-Curso-#4-No-disponible">
+            <div class="card__info">
+                <h4 class="card__title">Curso de jardinería</h4>
+                <img src="./img/estrellas.png" alt="valoración" id="estrellas">
+                <p><span class="precio">$120</span><strong class="card__precio">$11</strong></p>
+                <a href="#" class="card__btn--agregar" data-id="4">Agregar Al Carrito</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./img/curso5.jpg" alt="img-Curso-#5-No-disponible">
+            <div class="card__info">
+                <h4 class="card__title">Curso de Electrónica</h4>
+                <img src="./img/estrellas.png" alt="valoración" id="estrellas">
+                <p><span class="precio">$130</span><strong class="card__precio">$11</strong></p>
+                <a href="#" class="card__btn--agregar" data-id="5">Agregar Al Carrito</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./img/curso6.jpg" alt="img-Curso-#6-No-disponible">
+            <div class="card__info">
+                <h4 class="card__title">Curso de Machine Learning</h4>
+                <img src="./img/estrellas.png" alt="valoración" id="estrellas">
+                <p><span class="precio">$160</span><strong class="card__precio">$11</strong></p>
+                <a href="#" class="card__btn--agregar" data-id="6">Agregar Al Carrito</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./img/curso7.jpg" alt="img-Curso-#7-No-disponible">
+            <div class="card__info">
+                <h4 class="card__title">Curso de Node JS incluye 10 Apps</h4>
+                <img src="./img/estrellas.png" alt="valoración" id="estrellas">
+                <p><span class="precio">$90</span><strong class="card__precio">$11</strong></p>
+                <a href="#" class="card__btn--agregar" data-id="7">Agregar Al Carrito</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./img/curso8.jpg" alt="img-Curso-#8-No-disponible">
+            <div class="card__info">
+                <h4 class="card__title">Curso de React, HOOKS,  MERN +20 Apps </h4>
+                <img src="./img/estrellas.png" alt="valoración" id="estrellas">
+                <p><span class="precio">$200</span><strong class="card__precio">$11</strong></p>
+                <a href="#" class="card__btn--agregar" data-id="8">Agregar Al Carrito</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./img/curso9.jpg" alt="img-Curso-#9-No-disponible">
+            <div class="card__info">
+                <h4 class="card__title">Curso de Apollo + GraphQL, incluye 10 Apps </h4>
+                <img src="./img/estrellas.png" alt="valoración" id="estrellas">
+                <p><span class="precio">$100</span><strong class="card__precio">$11</strong></p>
+                <a href="#" class="card__btn--agregar" data-id="9">Agregar Al Carrito</a>
+            </div>
+        </div>
+</div>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="footer">
+        <hr>
+        <div class="footer__container">
+            <div class="footer__primer--columna">
+                <nav class="menu">
+                    <a class="enlace" href="#">Conviertete en Instructor</a>
+                    <a class="enlace" href="#">Para tu Negocio</a>
+                    <a class="enlace" href="#">Aplicaciones Móviles</a>
+                    <a class="enlace" href="#">Soporte</a>
+                    <a class="enlace" href="#">Temas</a>
+                </nav>
+            </div>
+            <div class="footer__segunda--columna">
+                <nav class="menu">
+                    <a class="enlace" href="#">¿Quienes Somos?</a>
+                    <a class="enlace" href="#">Empleo</a>
+                    <a class="enlace" href="#">Blog</a>
+                    <a class="enlace" href="#">Mapa del sitio</a>
+                    <a class="enlace" href="#">Novedades</a>
+                </nav>
+            </div>
+            <div class="footer__tercera--columna">
+                <nav class="menu">
+                    <a class="redes" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="redes" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="redes" href="#"><i class="fab fa-facebook"></i></a>
+                </nav>
+                <strong>
+                    © 2022 plataforma, Inc.
+                </strong>
+            </div>
+        </div>
+    </footer>
+
+    <script src='./js/app.js'></script>
+    <script src="https://kit.fontawesome.com/9602d00d4c.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
