@@ -108,3 +108,12 @@ function borrarDelCarrito(){
     console.log('borrando..')
 }
 
+function imprimirAlerta(msj,tipo){
+
+    if(tipo==='agregar'){
+    console.log('Agregado correctamente al carrito..')
+    }
+    else{
+        console.log('eliminado correctamente');
+    }
+}
