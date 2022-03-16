@@ -1,8 +1,10 @@
 //Variables
 const btnCarrito = document.querySelector('.areaCarrito');
-const carritoDiv = document.querySelector('.carrito')
+const carritoDiv = document.querySelector('.carrito');
 const listaCarrito = document.querySelector('.carrito tbody');
-const listaCursos = document.querySelector('#listaCursos')
+const listaCursos = document.querySelector('#listaCursos');
+const btnVaciar = document.querySelector('.carrito__btn--vaciar');
+
 let articulosCarrito = [];
 
 
@@ -18,19 +20,31 @@ function appCarritoInit() {
     });
     
 
-            carritoDiv.onmouseleave = ()=>{
-                if(carritoDiv.classList.contains('active')) {
+    carritoDiv.onmouseleave = ()=>{
+        if(carritoDiv.classList.contains('active')) {
                     
-                    setTimeout(()=>{
+            setTimeout(()=>{
                         carrito.classList.remove('active');
-                    },500);
-                }
-                
+                },500);
             }
+                
+        }
         
-        listaCursos.addEventListener('click', agregarCurso);
+    listaCursos.addEventListener('click', agregarCurso);
 
     carrito.addEventListener('click', eliminarCurso);
+
+    //muestra en el HTML lo de storage
+    document.addEventListener('DOMContentLoaded',()=>{
+        articulosCarrito =JSON.parse( localStorage.getItem('carrito') || [] ); //arreglo vacío en caso de estar vacío el carrito
+        carritoHTML();
+    })
+
+    //Vaciar el carrito
+    btnVaciar.addEventListener('click',()=>{
+        articulosCarrito=[];//resetear arreglo
+        limpiarHTML();
+    })
 
 } 
     
@@ -103,7 +117,14 @@ function carritoHTML() {
         //Agrega el HTML en el tbody
         listaCarrito.appendChild(fila);
     })
+
+    sincronizarStorage();
 }
+
+function sincronizarStorage(){
+    localStorage.setItem('carrito',JSON.stringify(articulosCarrito));
+}
+
 
 //Elimina los cursos repetidos del tbody y luego carritoHTML regenera el HTML
 
@@ -145,7 +166,7 @@ function imprimirAlerta(msj,tipo){
         else{
             divMsj.classList.add('divMsjEliminar');
             divMsj.textContent = msj;
-            header.appendChild(divMsj);
+            carrito.appendChild(divMsj);
 
         }
 
