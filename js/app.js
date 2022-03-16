@@ -4,22 +4,20 @@ const carritoDiv = document.querySelector('.carrito');
 const listaCarrito = document.querySelector('.carrito tbody');
 const listaCursos = document.querySelector('#listaCursos');
 const btnVaciar = document.querySelector('.carrito__btn--vaciar');
-
 let articulosCarrito = [];
 
 
 
 appCarritoInit();
+
+
 function appCarritoInit() {
-    //evento para mostrar el carrito
-    
+    //eventos para mostrar y ocultar el carrito
     btnCarrito.addEventListener('mouseover',()=>{
         if (!carritoDiv.classList.contains('active')) {
             carritoDiv.classList.add('active');
         }
     });
-    
-
     carritoDiv.onmouseleave = ()=>{
         if(carritoDiv.classList.contains('active')) {
                     
@@ -27,16 +25,14 @@ function appCarritoInit() {
                         carrito.classList.remove('active');
                 },500);
             }
-                
         }
-        
     listaCursos.addEventListener('click', agregarCurso);
 
     carrito.addEventListener('click', eliminarCurso);
 
-    //muestra en el HTML lo de storage
+    //muestra en HTML contenido de LocalStorage si lo hay
     document.addEventListener('DOMContentLoaded',()=>{
-        articulosCarrito =JSON.parse( localStorage.getItem('carrito') || [] ); //arreglo vacío en caso de estar vacío el carrito
+        articulosCarrito =JSON.parse( localStorage.getItem('carrito') || [] ); //arreglo vacío en caso de estar vacío LS
         carritoHTML();
     })
 
@@ -77,8 +73,8 @@ function leerCursoSeleccionado(curso) {
             else {
                 return curso; // si no se actualizara, retorna el mismo objeto
             }
-            
         });
+        console.log(...cursos)
         articulosCarrito = [...cursos];
     }
     else {
@@ -160,7 +156,7 @@ function imprimirAlerta(msj,tipo){
     if(tipo==='agregar'){
         divMsj.classList.add('divMsjAgregar');
         divMsj.textContent = msj;
-        header.appendChild(divMsj);
+        carrito.appendChild(divMsj);
         
     }
         else{
