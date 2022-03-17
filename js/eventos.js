@@ -3,10 +3,9 @@ const cards = document.querySelector('.cards__container');
 window.addEventListener('scroll',()=>{  
 
     let posicion = cards.getBoundingClientRect();
-    // console.log(posicion);
 
 
-    if(posicion.top<=720 ){
+    if(posicion.top<=725 ){
         cards.classList.add('animated');
     }
 
