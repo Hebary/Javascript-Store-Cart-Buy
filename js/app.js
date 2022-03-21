@@ -4,6 +4,7 @@ const carritoDiv = document.querySelector('.carrito');
 const listaCarrito = document.querySelector('.carrito tbody');
 const listaCursos = document.querySelector('#listaCursos');
 const btnVaciar = document.querySelector('.carrito__btn--vaciar');
+const btnAgregar = document.querySelector('.card__btn--agregar');
 let articulosCarrito = [];
 
 
@@ -51,8 +52,8 @@ function agregarCurso(e) {
     if (e.target.classList.contains('card__btn--agregar')) {
         const cursoSeleccionado = e.target.parentElement.parentElement;
         leerCursoSeleccionado(cursoSeleccionado);
+        imprimirAlerta('Agregado Correctamente','agregar');
     }
-    imprimirAlerta('Agregado Correctamente','agregar');
 }
 
 function leerCursoSeleccionado(curso) {
@@ -74,7 +75,6 @@ function leerCursoSeleccionado(curso) {
                 return curso; // si no se actualizara, retorna el mismo objeto
             }
         });
-        console.log(...cursos)
         articulosCarrito = [...cursos];
     }
     else {
@@ -145,28 +145,31 @@ function eliminarCurso(e){
     }
 
 }
-    
-
 
 
 function imprimirAlerta(msj,tipo){
-    const header = document.querySelector('header');
-    const divMsj = document.createElement("div");
     
-    if(tipo==='agregar'){
-        divMsj.classList.add('divMsjAgregar');
-        divMsj.textContent = msj;
-        carrito.appendChild(divMsj);
+    if(tipo==='agregar' ){
+        Toastify({
+        text: msj,
+        duration: 1800,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        style: {
+            background: "linear-gradient(to right, rgba(0,255,0,.6), rgba(0,255,0,.8))",
+        },
+      }).showToast();
         
     }
         else{
-            divMsj.classList.add('divMsjEliminar');
-            divMsj.textContent = msj;
-            carrito.appendChild(divMsj);
-
-        }
-
-    setTimeout(() =>{
-            divMsj.remove();
-        },3000);
+            Toastify({
+                text: msj,
+                duration: 1800,
+                gravity: "bottom", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                style: {
+                    background: "linear-gradient(to right, rgba(255,0,0,.8), rgba(255,0,0,1))",
+                },
+              }).showToast();
+    }
 }
