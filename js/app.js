@@ -5,6 +5,7 @@ const listaCarrito = document.querySelector('.carrito tbody');
 const listaCursos = document.querySelector('#listaCursos');
 const btnVaciar = document.querySelector('.carrito__btn--vaciar');
 const btnAgregar = document.querySelector('.card__btn--agregar');
+const total = document.querySelector('.total');
 let articulosCarrito = [];
 
 
@@ -40,6 +41,7 @@ function appCarritoInit() {
     //Vaciar el carrito
     btnVaciar.addEventListener('click',()=>{
         articulosCarrito=[];//resetear arreglo
+        calcularPrecio();
         limpiarHTML();
     })
 
@@ -62,9 +64,12 @@ function leerCursoSeleccionado(curso) {
         precio: curso.querySelector('.card__precio').textContent,
         imagen: curso.querySelector('.card > img').src,
         id: curso.querySelector('a').getAttribute('data-id'),
-        cantidad: 1
+        cantidad: 1,
+        precioNumber:11,
     }
+
     const existe = articulosCarrito.some(curso => curso.id === datosCurso.id);
+    
     if(existe){
         const cursos = articulosCarrito.map( curso =>{
             if(curso.id===datosCurso.id){
@@ -75,14 +80,34 @@ function leerCursoSeleccionado(curso) {
                 return curso; // si no se actualizara, retorna el mismo objeto
             }
         });
+        
         articulosCarrito = [...cursos];
     }
+    
     else {
+    
         articulosCarrito = [...articulosCarrito, datosCurso];
+       
+       
     }
+    calcularPrecio();
+
     carritoHTML();
 }
 
+function calcularPrecio(){
+    let suma = 0;
+        articulosCarrito.forEach(v_actual=>{
+            suma += v_actual.precioNumber;
+        })
+    
+        if(suma!=='undefined'){
+            total.innerHTML=`<strong>Total: $${suma}</strong>`;
+        }    else{
+            total.innerHTML=`<strong>Total: $${'0'}</strong>`;
+    }
+
+}
 
 function carritoHTML() {
     limpiarHTML();
@@ -98,6 +123,7 @@ function carritoHTML() {
             id
         } = curso;
 
+
         const fila = document.createElement('tr');
         fila.innerHTML = `
             <td class='margin'>
@@ -112,8 +138,8 @@ function carritoHTML() {
             `;
         //Agrega el HTML en el tbody
         listaCarrito.appendChild(fila);
+        calcularPrecio();
     })
-
     sincronizarStorage();
 }
 
@@ -140,7 +166,7 @@ function eliminarCurso(e){
         articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
         // console.log(articulosCarrito); //se borran correctamente del carrito
         imprimirAlerta('Eliminado Correctamente');
-
+        calcularPrecio();
         carritoHTML(); //itera de nuevo sobre el carrito y re-muestra el HTML
     }
 
