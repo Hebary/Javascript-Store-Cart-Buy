@@ -2,136 +2,203 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Carrito Dinámico</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Carrito Dinámico</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/skeleton.css">
-    <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  </script>
 </head>
 
 <body>
-    <!-- HEADER -->
-<header class="header">
+  <!-- HEADER -->
+  <header class="header">
     <div class="header__container">
-        <div class="container">
-            <div class="logo"><h3 class="logo__title">
-                P Plataforma</h3>
-            </div>
-                <div>
-                    <ul>
-                        <li class="submenu" >
-                            <img src="img/cart.png" class="carrito__img">
-                            <div id="carrito">
-                                <table id="listaCarrito" class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Imagen</th>
-                                            <th>Nombre</th>
-                                            <th>Precio</th>
-                                            <th>Cantidad</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
-                                <span class="total">Total a pagar:</span>
-                                <div class="comprar-vaciar">
-                                    <a href="#" id="vaciar-carrito" class="carrito__btn--comprar">Realizar Pago</a>
-                                    <a href="#" id="vaciar-carrito" class="carrito__btn--vaciar">Vaciar Carrito</a>
-                                </div>
-                            </div>
-                        </li>
-                </ul>
-            </div>
+      <div class="container">
+        <div class="logo">
+          <h3 class="logo__title">
+            P Plataforma</h3>
         </div>
+        <div>
+          <ul>
+            <li class="submenu">
+              <img src="img/cart.png" class="carrito__img">
+              <div id="carrito">
+                <table id="listaCarrito" class="table">
+                  <thead>
+                    <tr>
+                      <th>Imagen</th>
+                      <th>Nombre</th>
+                      <th>Precio</th>
+                      <th>Cantidad</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+                <span class="total">Total a pagar:</span>
+                <div class="comprar-vaciar">
+                  <a href="#" class="carrito__btn--comprar">Realizar Pago</a>
+                  <a href="#" class="carrito__btn--vaciar">Vaciar Carrito</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-</header>
-        
+  </header>
 
-    <!-- BANNER -->
 
-<div class="hero">
-    <h2>Aprende algo nuevo</h2>
-    <h3>Todos los cursos a $11</h3>
-    <form action="#">
+  <!-- BANNER -->
+
+  <div class="hero">
+    <div class="hero__texts">
+      <h2 class="font-bold">Aprende algo nuevo</h2>
+      <h3 class="font-bold text-xl">Todos los cursos a $11</h3>
+      <form action="#">
         <input type="search" class="buscarInput " name="buscarInput" id="buscarInput" value=""
-            placeholder="¿Qué quieres aprender?">
+          placeholder="¿Qué quieres aprender?">
         <input type="submit" id="submit-buscador" value="" class="submit-buscador">
-    </form>
-</div>
+      </form>
+    </div>
+    <div id="carouselDarkVariant" class="carousel slide carousel-fade carousel-dark relative" data-bs-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
+        <button data-bs-target="#carouselDarkVariant" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="Slide 1"></button>
+        <button data-bs-target="#carouselDarkVariant" data-bs-slide-to="1" aria-label="Slide 1"></button>
+        <button data-bs-target="#carouselDarkVariant" data-bs-slide-to="2" aria-label="Slide 1"></button>
+      </div>
+
+      <!-- Inner -->
+      <div class="carousel-inner  relative w-full overflow-hidden">
+        <!-- Single item -->
+        <div class="carousel-item active relative float-left w-full">
+          <img src="img/hero.jpg" class="block w-full hero__img" alt="Motorbike Smoke" />
+          <div class="carousel-caption hidden md:block absolute text-center">
+          </div>
+        </div>
+
+        <!-- Single item -->
+        <div class="carousel-item relative float-left w-full">
+          <img src="img/hero2.jpg" class="block w-full  hero__img" alt="Mountaintop" />
+          <div class="carousel-caption hidden md:block absolute text-center">
+          </div>
+        </div>
+
+        <!-- Single item -->
+        <div class="carousel-item relative float-left w-full">
+          <img src="img/hero1.jpg" class="block w-full  hero__img " alt="Woman Reading a Book" />
+          <div class="carousel-caption hidden md:block absolute text-center">
+          </div>
+        </div>
+      </div>
+      <!-- Inner -->
+
+      <!-- Controls -->
+      <button
+        class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
+        type="button" data-bs-target="#carouselDarkVariant" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
+        type="button" data-bs-target="#carouselDarkVariant" data-bs-slide="next">
+        <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
 
 
-<div class="barra">
+  <div class="barra">
     <div class="icono icono1">
-        <p>+20,000 Cursos en línea <br>
-            Descubre los temas más recientes</p>
+      <p>+20,000 Cursos en línea <br>
+        Descubre los temas más recientes</p>
     </div>
     <div class="icono icono2">
-        <p>Instructores Expertos <br>
-            Aprende con distintos estilos</p>
+      <p>Instructores Expertos <br>
+        Aprende con distintos estilos</p>
     </div>
     <div class="icono icono3">
-        <p>Acceso de por vida <br>
-            Hazlo a tu ritmo</p>
+      <p>Acceso de por vida <br>
+        Hazlo a tu ritmo</p>
     </div>
-</div>
+  </div>
 
-    <!-- CARDS -->
-    
-<h1>Cursos Online</h1>
-<div id="listaCursos" class="cards__container" >
-    
-</div>
+  <!-- CARDS -->
 
-    <!-- FOOTER -->
-<footer id="footer" class="footer">
+  <h1 class="font-bold text-3xl">Cursos Online</h1>
+  <div id="listaCursos" class="cards__contenedor">
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="footer" class="footer">
     <hr>
     <div class="footer__container">
-        <div class="footer__primer--columna">
-            <nav class="menu">
-                <a class="enlace" href="#">Conviertete en Instructor</a>
-                <a class="enlace" href="#">Para tu Negocio</a>
-                <a class="enlace" href="#">Aplicaciones Móviles</a>
-                <a class="enlace" href="#">Soporte</a>
-                <a class="enlace" href="#">Temas</a>
-            </nav>
-        </div>
-        <div class="footer__segunda--columna">
-            <nav class="menu">
-                <a class="enlace" href="#">¿Quienes Somos?</a>
-                <a class="enlace" href="#">Empleo</a>
-                <a class="enlace" href="#">Blog</a>
-                <a class="enlace" href="#">Mapa del sitio</a>
-                <a class="enlace" href="#">Novedades</a>
-            </nav>
-        </div>
-        <div class="footer__tercera--columna">
-            <nav class="menu">
-                <a class="redes" href="#"><i class="fab fa-instagram"></i></a>
-                <a class="redes" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="redes" href="#"><i class="fab fa-facebook"></i></a>
-            </nav>
-            <strong>
-                © 2022 plataforma, Inc.
-            </strong>
-        </div>
+      <div class="footer__primer--columna">
+        <nav class="menu">
+          <a class="enlace" href="#">Conviertete en Instructor</a>
+          <a class="enlace" href="#">Para tu Negocio</a>
+          <a class="enlace" href="#">Aplicaciones Móviles</a>
+          <a class="enlace" href="#">Soporte</a>
+          <a class="enlace" href="#">Temas</a>
+        </nav>
+      </div>
+      <div class="footer__segunda--columna">
+        <nav class="menu">
+          <a class="enlace" href="#">¿Quienes Somos?</a>
+          <a class="enlace" href="#">Empleo</a>
+          <a class="enlace" href="#">Blog</a>
+          <a class="enlace" href="#">Mapa del sitio</a>
+          <a class="enlace" href="#">Novedades</a>
+        </nav>
+      </div>
+      <div class="footer__tercera--columna">
+        <nav class="menu">
+          <a class="redes" href="#"><i class="fab fa-instagram"></i></a>
+          <a class="redes" href="#"><i class="fab fa-twitter"></i></a>
+          <a class="redes" href="#"><i class="fab fa-facebook"></i></a>
+        </nav>
+        <strong>
+          © 2022 plataforma, Inc.
+        </strong>
+      </div>
     </div>
-</footer>
-    
-    <!-- SRIPTS -->
-    
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-      </script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="https://kit.fontawesome.com/9602d00d4c.js" crossorigin="anonymous"></script>
-    <script src='./js/eventos.js'></script>
-    <script src='./js/app.js'></script>
+  </footer>
+
+  <!-- SRIPTS -->
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="https://kit.fontawesome.com/9602d00d4c.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+  <script src='./js/app.js'></script>
 </body>
+
 </html>
