@@ -1,0 +1,66 @@
+[
+    {
+        "titulo": "HTML5,CSS3 y JavaScript" ,
+        "img": "./img/curso1.jpg" ,
+        "valor": "./img/estrellas.png" ,
+        "precio": "$11",
+        "id":1
+    },
+    {
+        "titulo": "Aprende a programar" ,
+        "img": "./img/curso2.jpg" ,
+        "valor": "./img/estrellas.png" ,
+        "precio": "$11",
+        "id":2
+    },
+    {
+        "titulo": "Curso de Guitarra" ,
+        "img": "./img/curso3.jpg" ,
+        "valor": "./img/estrellas.png" ,
+        "precio": "$11",
+        "id":3
+    },
+    {
+        "titulo": "Curso de React Native" ,
+        "img": "./img/curso4.jpg" ,
+        "valor": "./img/estrellas.png" ,
+        "precio": "$11",
+        "id":4
+    },
+    {
+        "titulo": "Curso de Electrónica" ,
+        "img": "./img/curso5.jpg" ,
+        "valor": "./img/estrellas.png" ,
+        "precio": "$11",
+        "id":5
+    },
+    {
+        "titulo": "Aprende Machine Learning" ,
+        "img": "./img/curso6.jpg" ,
+        "valor": "./img/estrellas.png" ,
+        "precio": "$11",
+        "id":6
+    },
+    {
+        "titulo": "Curso de NodeJS" ,
+        "img": "./img/curso7.jpg" ,
+        "valor": "./img/estrellas.png" ,
+        "precio": "$11",
+        "id":7
+    },
+    {
+        "titulo": "Curso de React JS" ,
+        "img": "./img/curso8.jpg" ,
+        "valor": "./img/estrellas.png" ,
+        "precio": "$11",
+        "id":8
+    },
+    {
+        "titulo": "Aprende Apollo + GraphQL" ,
+        "img": "./img/curso9.jpg" ,
+        "valor": "./img/estrellas.png" ,
+        "precio": "$11",
+        "id":9
+    }
+
+]
