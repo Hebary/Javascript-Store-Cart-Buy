@@ -326,6 +326,7 @@ h1{
     padding-bottom: 20px;
 }
 
+
 .card>img{
     width: 100%;
     border-radius: 15px 15px 0 0;
@@ -371,10 +372,6 @@ strong{
     float:right;
 }
 
-.card:hover{
-    transform:scale(1.02);
-    transition: transform 0.5s;
-}
 
 /* Footer */
 

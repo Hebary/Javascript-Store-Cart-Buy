@@ -1,16 +1,14 @@
 //Variables
 const listaCarrito = document.querySelector('#listaCarrito tbody');
 const listaCursos = document.querySelector('#listaCursos');
-const btnVaciar = document.querySelector('.carrito__btn--vaciar');
 const btnAgregar = document.querySelector('.card__btn--agregar');
+const btnVaciar = document.querySelector('.carrito__btn--vaciar');
 const total = document.querySelector('.total');
 let articulosCarrito = [];
 
 
-
+//EVENTOS 
 eventos();
-
-
 function eventos() {
     
     document.addEventListener('DOMContentLoaded',obtenerCursos);
@@ -33,19 +31,21 @@ function eventos() {
 } 
 
 
-//Funciones
+//FUNCIONES
 
+//obtiene los cursos 
 function obtenerCursos(){
     const url = "./js/cursos.json"; 
     fetch(url)
         .then(res => res.json())
         .then(res => {
             res.forEach(curso => {
-                const {titulo,img,valor,precio,id} = curso;
 
+                const {titulo,img,valor,precio,id} = curso;
+                //para cada curso una card 
                 const card = document.createElement('div');
                 card.classList.add('card');
-                card.setAttribute("data-aos","zoom-in-up");
+                card.setAttribute("data-aos","zoom-in-up"); //animacion
                 card.innerHTML=`
                 <img src="${img}" alt="img-Curso-#1-No-disponible">
                 <div class="card__info">
@@ -58,7 +58,7 @@ function obtenerCursos(){
                 
                 listaCursos.appendChild(card)
             })
-        });
+s        });
 }       
 
 
