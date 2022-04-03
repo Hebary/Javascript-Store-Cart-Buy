@@ -108,11 +108,7 @@ function leerCursoSeleccionado(curso) {
 }
 
 function calcularPrecio(){
-
-    let suma = 0;
-        articulosCarrito.forEach(v_actual=>{
-            suma += v_actual.precioNumber;
-        })
+    let suma = articulosCarrito.reduce((total,v_actual)=>v_actual.precioNumber + total,0)
         if(suma!=='undefined'){
             total.innerHTML=`<strong>Total: $${suma}</strong>`;
         }    else{
